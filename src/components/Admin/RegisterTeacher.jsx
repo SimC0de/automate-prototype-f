@@ -1,8 +1,8 @@
 import { useState } from "react";
-import { Button } from "./ui/button";
-import { Input } from "./ui/input";
-import { Label } from "./ui/label";
-import { Checkbox } from "./ui/checkbox";
+import { Button } from "../ui/button";
+import { Input } from "../ui/input";
+import { Label } from "../ui/label";
+import { Checkbox } from "../ui/checkbox";
 import { toast } from "sonner";
 import { X } from "lucide-react";
 

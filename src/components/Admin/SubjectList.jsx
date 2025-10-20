@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Button } from "./ui/button";
+import { Button } from "../ui/button";
 import { Search } from "lucide-react";
 import { toast } from "sonner";
 

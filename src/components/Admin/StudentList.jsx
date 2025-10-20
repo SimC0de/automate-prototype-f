@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Search, Edit, Trash2, Eye } from "lucide-react";
-import { Button } from "./ui/button";
+import { Button } from "../ui/button";
 import { toast } from "sonner";
 
 const mockStudents = [
