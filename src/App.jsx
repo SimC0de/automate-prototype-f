@@ -23,6 +23,7 @@ import { TeacherSidebar } from "./components/Teacher/TeacherSidebar";
 import TeacherDashboard from "./components/Teacher/TeacherDashboard";
 import GradeSheetSelection from "./components/Teacher/GradeSheetSelection";
 import GradeSheetTable from "./components/Teacher/GradeSheetTable";
+import { GradeSheetSelection2 } from "./components/Teacher/GradeSheetSelection2";
 
 export default function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -86,7 +87,7 @@ export default function App() {
       case "teacher-dashboard":
         return <TeacherDashboard />;
         case "gradesheet-selection":
-        return <GradeSheetSelection />;
+        return <GradeSheetSelection2 />;
         case "gradesheet-table":
         return <GradeSheetTable />;
       default:

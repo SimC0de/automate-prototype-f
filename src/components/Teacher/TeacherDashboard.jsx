@@ -21,7 +21,7 @@ export default function TeacherDashboard() {
           Welcome <span className="font-bold">ABELLO SIMONE ROY</span> to your personal page!
         </p>
 
-        <div className="border border-[#5c5c5c] rounded-[14px] overflow-hidden w-[650px]">
+        <div className="mx-auto border border-[#5c5c5c] rounded-[14px] overflow-hidden w-[650px]">
           <div className="bg-[#e9e9e9] text-center font-medium py-3 border-b border-[#5c5c5c]">
             Teacher’s Mobile Number
           </div>
@@ -34,7 +34,7 @@ export default function TeacherDashboard() {
           </div>
         </div>
 
-        <p className="mt-6 text-sm text-center text-[#5c5c5c] max-w-[600px]">
+        <p className="mx-auto mt-6 text-sm text-center text-[#5c5c5c] max-w-[600px]">
           Please note that every activity is monitored closely. For any problem in the system, contact
           System Administrator for details.
         </p>

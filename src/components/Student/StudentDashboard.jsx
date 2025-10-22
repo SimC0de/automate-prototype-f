@@ -38,7 +38,6 @@ export default function StudentDashboard() {
           </p>
         </div>
 
-        {/* Mobile numbers card */}
         <div className="mx-auto max-w-3xl border border-[#5c5c5c] rounded-[14px] overflow-hidden shadow-[0px_4px_4px_#1e1e1e]">
           <div className="grid grid-cols-2 bg-[#e9e9e9] border-b border-[#5c5c5c] text-center">
             <div className="py-3">Student’s Mobile Number</div>

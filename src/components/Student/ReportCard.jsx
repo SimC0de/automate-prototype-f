@@ -65,16 +65,16 @@ export default function ReportCard() {
         </p>
       </div>
 
-      {/* Content area */}
+      {/* Main Content */}
       <div className="absolute left-[42px] right-[42px] top-[100px] bottom-[42px] overflow-auto">
         <div className="grid lg:grid-cols-2 gap-8 p-4">
-          {/* LEFT PANEL */}
-          <div className="border border-[#5c5c5c] rounded-[14px] bg-white shadow-[0px_4px_4px_0px_#1e1e1e]">
-            <h3 className="text-center mt-4 font-medium text-sm">
+          {/* LEFT PANEL — LEARNING PROGRESS */}
+          <div className="border border-[#5c5c5c] rounded-[14px] bg-white shadow-[0px_4px_4px_#1e1e1e]">
+            <h3 className="text-center mt-4 font-semibold text-sm tracking-wide">
               REPORT ON LEARNING PROGRESS AND ACHIEVEMENT
             </h3>
 
-            {/* Header row */}
+            {/* Header Row */}
             <div className="grid grid-cols-[1fr_repeat(6,minmax(70px,1fr))] bg-[#d9d9d9] mt-4 text-sm font-medium border-y border-[#5c5c5c]">
               <div className="py-2 px-3 text-left">LEARNING AREAS</div>
               <div className="text-center py-2">1</div>
@@ -85,13 +85,13 @@ export default function ReportCard() {
               <div className="text-center py-2">Remarks</div>
             </div>
 
-            {/* Subjects */}
+            {/* Subject Rows */}
             {learningAreas.map((subject, i) => (
               <div
                 key={i}
-                className="grid grid-cols-[1fr_repeat(6,minmax(70px,1fr))] text-sm border-b border-[#5c5c5c] h-[40px] items-center"
+                className="grid grid-cols-[1fr_repeat(6,minmax(70px,1fr))] text-sm border-b border-[#5c5c5c] items-center"
               >
-                <div className="px-3">{subject}</div>
+                <div className="px-3 py-2">{subject}</div>
                 <div className="text-center opacity-50">—</div>
                 <div className="text-center opacity-50">—</div>
                 <div className="text-center opacity-50">—</div>
@@ -102,10 +102,10 @@ export default function ReportCard() {
             ))}
 
             {/* General Average */}
-            <div className="grid grid-cols-[1fr_repeat(6,minmax(70px,1fr))] text-sm border-t border-[#5c5c5c] h-[40px] items-center bg-[#f7f7f7] font-medium">
-              <div className="px-3">General Average</div>
-              <div className="text-center col-span-5"></div>
-              <div className="text-center opacity-50">—</div>
+            <div className="grid grid-cols-[1fr_repeat(6,minmax(70px,1fr))] text-sm border-t border-[#5c5c5c] bg-[#f7f7f7] font-medium">
+              <div className="px-3 py-2">General Average</div>
+              <div className="col-span-5"></div>
+              <div className="text-center opacity-50 py-2">—</div>
             </div>
 
             {/* Legend */}
@@ -137,39 +137,43 @@ export default function ReportCard() {
             </div>
           </div>
 
-          {/* RIGHT PANEL */}
-          <div className="border border-[#5c5c5c] rounded-[14px] bg-white shadow-[0px_4px_4px_0px_#1e1e1e]">
-            <h3 className="text-center mt-4 font-medium text-sm">
+          {/* RIGHT PANEL — OBSERVED VALUES */}
+          <div className="border border-[#5c5c5c] rounded-[14px] bg-white shadow-[0px_4px_4px_#1e1e1e]">
+            <h3 className="text-center mt-4 font-semibold text-sm tracking-wide">
               REPORT ON LEARNER’S OBSERVED VALUES
             </h3>
 
             {/* Table Header */}
             <div className="grid grid-cols-[150px_1fr_repeat(4,70px)] bg-[#d9d9d9] mt-4 text-sm font-medium border-y border-[#5c5c5c]">
               <div className="py-2 px-3">Core Values</div>
-              <div className="py-2">Behavior Statement</div>
+              <div className="py-2 px-3">Behavior Statement</div>
               <div className="text-center py-2">1</div>
               <div className="text-center py-2">2</div>
               <div className="text-center py-2">3</div>
               <div className="text-center py-2">4</div>
             </div>
 
-            {/* Core values */}
+            {/* Core Values */}
             {coreValues.map((section, i) => (
-              <div key={i}>
-                <div className="font-medium px-4 py-2 border-b border-gray-300 bg-[#f9f9f9]">
+              <div key={i} className="border-t border-[#5c5c5c]">
+                {/* Core Value Header */}
+                <div className="font-medium px-4 py-2 bg-[#f9f9f9] border-b border-gray-300">
                   {section.core}
                 </div>
+                {/* Behavior Rows */}
                 {section.behaviors.map((text, j) => (
                   <div
                     key={j}
-                    className="grid grid-cols-[150px_1fr_repeat(4,70px)] text-sm border-b border-[#5c5c5c] items-center h-[45px]"
+                    className="grid grid-cols-[150px_1fr_repeat(4,70px)] border-b border-[#5c5c5c] text-sm"
                   >
                     <div></div>
-                    <div className="px-3">{text}</div>
-                    <div className="text-center opacity-50">—</div>
-                    <div className="text-center opacity-50">—</div>
-                    <div className="text-center opacity-50">—</div>
-                    <div className="text-center opacity-50">—</div>
+                    <div className="px-3 py-2 leading-snug break-words">
+                      {text}
+                    </div>
+                    <div className="text-center opacity-50 py-2">—</div>
+                    <div className="text-center opacity-50 py-2">—</div>
+                    <div className="text-center opacity-50 py-2">—</div>
+                    <div className="text-center opacity-50 py-2">—</div>
                   </div>
                 ))}
               </div>
