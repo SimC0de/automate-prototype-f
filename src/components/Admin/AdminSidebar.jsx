@@ -11,9 +11,10 @@ import {
   UserCheck,
   LayoutList,
   BookOpenCheck,
+  LogOut,
 } from "lucide-react";
 
-export function AdminSidebar({ activeView, onViewChange }) {
+export function AdminSidebar({ activeView, onViewChange, logout }) {
   const menuItems = [
     { id: "register", label: "Register Student", icon: UserPlus },
     { id: "add-to-class", label: "Add to Classroom", icon: Users },
@@ -85,6 +86,9 @@ export function AdminSidebar({ activeView, onViewChange }) {
         <p className="absolute left-[10px] text-nowrap text-white top-[13px] whitespace-pre">
           AD
         </p>
+        <button onClick={logout}>
+          <LogOut className="absolute right-[-40px] w-6 h-6 text-[#474747]" />
+        </button>
       </div>
     </div>
   );

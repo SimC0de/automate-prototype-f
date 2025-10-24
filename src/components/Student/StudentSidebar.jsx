@@ -7,7 +7,7 @@ import {
   Settings,
 } from "lucide-react";
 
-export function StudentSidebar({ activeView, onViewChange }) {
+export function StudentSidebar({ activeView, onViewChange, logout }) {
   const menuItems = [
     { id: "student-dashboard", label: "Dashboard", icon: Home },
     { id: "subject-enrolled", label: "Subject Enrolled", icon: BookOpen },
@@ -72,7 +72,9 @@ export function StudentSidebar({ activeView, onViewChange }) {
         <p className="absolute left-[10px] text-nowrap text-white top-[13px] whitespace-pre">
           ST
         </p>
-        <LogOut className="absolute right-[-40px] w-6 h-6 text-[#474747]" />
+        <button onClick={logout}>
+          <LogOut className="absolute right-[-40px] w-6 h-6 text-[#474747]" />
+        </button>
       </div>
     </div>
   );

@@ -1,15 +1,13 @@
-import {
-  Home,
-  ClipboardList,
-  Table,
-  Settings,
-  LogOut,
-} from "lucide-react";
+import { Home, ClipboardList, Table, Settings, LogOut } from "lucide-react";
 
-export function TeacherSidebar({ activeView, onViewChange }) {
+export function TeacherSidebar({ activeView, onViewChange, logout }) {
   const menuItems = [
     { id: "teacher-dashboard", label: "Dashboard", icon: Home },
-    { id: "gradesheet-selection", label: "Grade Sheet Selection", icon: ClipboardList },
+    {
+      id: "gradesheet-selection",
+      label: "Grade Sheet Selection",
+      icon: ClipboardList,
+    },
     { id: "gradesheet-table", label: "Grade Sheet Table", icon: Table },
     { id: "settings", label: "Settings", icon: Settings },
   ];
@@ -74,7 +72,9 @@ export function TeacherSidebar({ activeView, onViewChange }) {
         <p className="absolute left-[10px] text-nowrap text-white top-[13px] whitespace-pre">
           TE
         </p>
-        <LogOut className="absolute right-[-40px] w-6 h-6 text-[#474747]" />
+        <button onClick={logout}> 
+          <LogOut className="absolute right-[-40px] w-6 h-6 text-[#474747]" />
+        </button>
       </div>
     </div>
   );

@@ -29,7 +29,6 @@ export default function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [userRole, setUserRole] = useState("Teacher");
   const [activeView, setActiveView] = useState("register");
-  console.log(isLoggedIn);
 
   const handleLogin = (role) => {
     setUserRole(role);
@@ -95,7 +94,7 @@ export default function App() {
     }
   };
 
-  if (isLoggedIn) {
+  if (!isLoggedIn) {
     return (
       <>
         <LoginPage onLogin={handleLogin} />
@@ -104,7 +103,7 @@ export default function App() {
     );
   }
 
-  if (!isLoggedIn) {
+  if (isLoggedIn) {
     return (
       <>
         <div className="">
@@ -112,6 +111,7 @@ export default function App() {
             <AdminSidebar
               activeView={activeView}
               onViewChange={setActiveView}
+              logout={() => setIsLoggedIn(false)}
             />
           )}
           {userRole === "Admin" && renderAdmin()}
@@ -119,6 +119,7 @@ export default function App() {
             <StudentSidebar
               activeView={activeView}
               onViewChange={setActiveView}
+              logout={() => setIsLoggedIn(false)}
             />
           )}
           {userRole === "Student" && renderStudent()}
@@ -126,6 +127,7 @@ export default function App() {
             <TeacherSidebar
               activeView={activeView}
               onViewChange={setActiveView}
+              logout={() => setIsLoggedIn(false)}
             />
           )}
           {userRole === "Teacher" && renderTeacher()}
