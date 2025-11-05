@@ -25,17 +25,9 @@ export function StudentList() {
       (filterGrade === "" || student.grade === filterGrade)
   );
 
-  const handleEdit = (id) => {
-    toast.info(`Edit student ${id}`);
-  };
-
-  const handleDelete = (id) => {
-    toast.success(`Student ${id} removed`);
-  };
-
-  const handleView = (id) => {
-    toast.info(`View student ${id} details`);
-  };
+  const handleEdit = (id) => toast.info(`Edit student ${id}`);
+  const handleDelete = (id) => toast.success(`Student ${id} removed`);
+  const handleView = (id) => toast.info(`View student ${id} details`);
 
   return (
     <div className="absolute backdrop-blur-[17.5px] backdrop-filter bg-[rgba(255,255,255,0.41)] h-[calc(100%-138px)] left-[420px] rounded-[31px] top-[69px] w-[calc(100%-470px)]">
@@ -76,63 +68,81 @@ export function StudentList() {
             </select>
           </div>
 
-          <div className="bg-[#d9d9d9] h-[50px] flex items-center px-4">
-            <div className="w-24">Student ID</div>
-            <div className="flex-1">Full Name</div>
-            <div className="w-32">Grade</div>
-            <div className="w-32">Section</div>
-            <div className="w-48">Guardian</div>
-            <div className="w-40">Contact</div>
-            <div className="w-32 text-center">Actions</div>
-          </div>
-
-          <div className="space-y-0">
-            {filteredStudents.map((student) => (
-              <div
-                key={student.id}
-                className="h-[70px] flex items-center px-4 border border-black bg-white"
-              >
-                <div className="w-24">{student.id}</div>
-                <div className="flex-1">{student.name}</div>
-                <div className="w-32">{student.grade}</div>
-                <div className="w-32">{student.section}</div>
-                <div className="w-48">{student.guardian}</div>
-                <div className="w-40">{student.contact}</div>
-                <div className="w-32 flex justify-center gap-2">
-                  <button
-                    onClick={() => handleView(student.id)}
-                    className="p-2 rounded-lg transition-colors"
-                    title="View"
-                  >
-                    <Eye className="w-5 h-5 text-blue-600" />
-                  </button>
-                  <button
-                    onClick={() => handleEdit(student.id)}
-                    className="p-2 rounded-lg transition-colors"
-                    title="Edit"
-                  >
-                    <Edit className="w-5 h-5 text-green-600" />
-                  </button>
-                  <button
-                    onClick={() => handleDelete(student.id)}
-                    className="p-2 rounded-lg transition-colors"
-                    title="Delete"
-                  >
-                    <Trash2 className="w-5 h-5 text-red-600" />
-                  </button>
-                </div>
+          {/* Show message if search bar empty */}
+          {searchTerm.trim() === "" ? (
+            <div className="text-center text-gray-600 py-10 italic">
+              🔍 Start typing in the search bar to find students...
+            </div>
+          ) : (
+            <>
+              {/* Table header */}
+              <div className="bg-[#d9d9d9] h-[50px] flex items-center px-4">
+                <div className="w-24 font-medium">Student ID</div>
+                <div className="flex-1 font-medium">Full Name</div>
+                <div className="w-32 font-medium">Grade</div>
+                <div className="w-32 font-medium">Section</div>
+                <div className="w-48 font-medium">Guardian</div>
+                <div className="w-40 font-medium">Contact</div>
+                <div className="w-32 text-center font-medium">Actions</div>
               </div>
-            ))}
-          </div>
 
-          <div className="mt-6 flex justify-between items-center">
-            <p className="text-gray-600">
-              Showing {filteredStudents.length} of {mockStudents.length} students
-            </p>
-            <Button className="bg-[#ebeaea] text-black border-[#5c5c5c] rounded-[12px] px-6 hover:bg-[#d9d9d9]">
-              Export List
-            </Button>
-          </div>
+              {/* Filtered results */}
+              <div className="space-y-0">
+                {filteredStudents.length > 0 ? (
+                  filteredStudents.map((student) => (
+                    <div
+                      key={student.id}
+                      className="h-[70px] flex items-center px-4 border border-black bg-white"
+                    >
+                      <div className="w-24">{student.id}</div>
+                      <div className="flex-1">{student.name}</div>
+                      <div className="w-32">{student.grade}</div>
+                      <div className="w-32">{student.section}</div>
+                      <div className="w-48">{student.guardian}</div>
+                      <div className="w-40">{student.contact}</div>
+                      <div className="w-32 flex justify-center gap-2">
+                        <button
+                          onClick={() => handleView(student.id)}
+                          className="p-2 rounded-lg hover:bg-gray-100"
+                          title="View"
+                        >
+                          <Eye className="w-5 h-5 text-blue-600" />
+                        </button>
+                        <button
+                          onClick={() => handleEdit(student.id)}
+                          className="p-2 rounded-lg hover:bg-gray-100"
+                          title="Edit"
+                        >
+                          <Edit className="w-5 h-5 text-green-600" />
+                        </button>
+                        <button
+                          onClick={() => handleDelete(student.id)}
+                          className="p-2 rounded-lg hover:bg-gray-100"
+                          title="Delete"
+                        >
+                          <Trash2 className="w-5 h-5 text-red-600" />
+                        </button>
+                      </div>
+                    </div>
+                  ))
+                ) : (
+                  <div className="text-center text-gray-600 py-10 italic">
+                    No students found matching your search.
+                  </div>
+                )}
+              </div>
+
+              {/* Footer */}
+              <div className="mt-6 flex justify-between items-center">
+                <p className="text-gray-600">
+                  Showing {filteredStudents.length} of {mockStudents.length} students
+                </p>
+                <Button className="bg-[#ebeaea] text-black border-[#5c5c5c] rounded-[12px] px-6 hover:bg-[#d9d9d9]">
+                  Export List
+                </Button>
+              </div>
+            </>
+          )}
         </div>
       </div>
     </div>
