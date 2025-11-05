@@ -4,11 +4,36 @@ import { Search } from "lucide-react";
 import { toast } from "sonner";
 
 const mockStudents = [
-  { id: "S001", name: "Juan Dela Cruz", gradeLevel: "Grade 7", assigned: false },
-  { id: "S002", name: "Maria Santos", gradeLevel: "Grade 7", assigned: false },
-  { id: "S003", name: "Jose Reyes", gradeLevel: "Grade 7", assigned: false },
-  { id: "S004", name: "Ana Garcia", gradeLevel: "Grade 8", assigned: false },
-  { id: "S005", name: "Pedro Martinez", gradeLevel: "Grade 8", assigned: false },
+  {
+    id: "S001",
+    name: "Juan Dela Cruz",
+    gradeLevel: "Grade 7",
+    assigned: false,
+  },
+  {
+    id: "S002",
+    name: "Maria Santos",
+    gradeLevel: "Grade 7",
+    assigned: false,
+  },
+  {
+    id: "S003",
+    name: "Jose Reyes",
+    gradeLevel: "Grade 7",
+    assigned: false,
+  },
+  {
+    id: "S004",
+    name: "Ana Garcia",
+    gradeLevel: "Grade 8",
+    assigned: false,
+  },
+  {
+    id: "S005",
+    name: "Pedro Martinez",
+    gradeLevel: "Grade 8",
+    assigned: false,
+  },
 ];
 
 export function AssignToClassroom() {
@@ -32,7 +57,9 @@ export function AssignToClassroom() {
       toast.error("Please select a section");
       return;
     }
-    toast.success(`${selectedStudents.length} student(s) assigned to ${selectedSection}`);
+    toast.success(
+      `${selectedStudents.length} student(s) assigned to ${selectedSection}`
+    );
     setSelectedStudents([]);
   };
 
@@ -98,10 +125,18 @@ export function AssignToClassroom() {
                   className="w-full h-12 px-3 bg-[#f0f0f0] border border-[#5c5c5c] rounded-[10px] disabled:opacity-50"
                 >
                   <option value="">Select Section</option>
-                  <option value={`${selectedGrade} - Einstein`}>{selectedGrade} - Einstein</option>
-                  <option value={`${selectedGrade} - Newton`}>{selectedGrade} - Newton</option>
-                  <option value={`${selectedGrade} - Darwin`}>{selectedGrade} - Darwin</option>
-                  <option value={`${selectedGrade} - Curie`}>{selectedGrade} - Curie</option>
+                  <option value={`${selectedGrade} - Einstein`}>
+                    {selectedGrade} - Einstein
+                  </option>
+                  <option value={`${selectedGrade} - Newton`}>
+                    {selectedGrade} - Newton
+                  </option>
+                  <option value={`${selectedGrade} - Darwin`}>
+                    {selectedGrade} - Darwin
+                  </option>
+                  <option value={`${selectedGrade} - Curie`}>
+                    {selectedGrade} - Curie
+                  </option>
                 </select>
               </div>
             </div>
@@ -152,7 +187,9 @@ export function AssignToClassroom() {
             </div>
 
             <div className="flex justify-between items-center mt-6">
-              <p className="text-gray-600">{selectedStudents.length} student(s) selected</p>
+              <p className="text-gray-600">
+                {selectedStudents.length} student(s) selected
+              </p>
               <Button
                 onClick={handleAssign}
                 className="bg-[#ebeaea] text-black border-[#5c5c5c] rounded-[12px] px-8 hover:bg-[#d9d9d9]"
