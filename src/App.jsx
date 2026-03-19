@@ -24,6 +24,8 @@ import TeacherDashboard from "./components/Teacher/TeacherDashboard";
 import GradeSheetSelection from "./components/Teacher/GradeSheetSelection";
 import GradeSheetTable from "./components/Teacher/GradeSheetTable";
 import { GradeSheetSelection2 } from "./components/Teacher/GradeSheetSelection2";
+import TeacherAnnouncement from "./components/Teacher/TeacherAnnouncement";
+import StudentAnnouncement from "./components/Student/StudentAnnouncement";
 
 export default function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -76,6 +78,8 @@ export default function App() {
         return <SubjectSchedule />;
       case "report-card":
         return <ReportCard />;
+      case "student-announcement":
+        return <StudentAnnouncement />;
       default:
         return <StudentDashboard />;
     }
@@ -85,10 +89,10 @@ export default function App() {
     switch (activeView) {
       case "teacher-dashboard":
         return <TeacherDashboard />;
-        case "gradesheet-selection":
-        return <GradeSheetSelection2 />;
-        case "gradesheet-table":
+      case "gradesheet-table":
         return <GradeSheetTable />;
+      case "teacher-announcements":
+        return <TeacherAnnouncement />;
       default:
         return <TeacherDashboard />;
     }

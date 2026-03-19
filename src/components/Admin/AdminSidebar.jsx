@@ -67,7 +67,7 @@ export function AdminSidebar({ activeView, onViewChange, logout }) {
   // track which groups are expanded
   const [expandedGroups, setExpandedGroups] = useState(() =>
     // default: expand the first group
-    new Set(["students"])
+    new Set(["students", "classes"])
   );
 
   const toggleGroup = (groupId) => {

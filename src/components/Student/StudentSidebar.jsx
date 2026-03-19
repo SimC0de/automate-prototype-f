@@ -13,6 +13,7 @@ export function StudentSidebar({ activeView, onViewChange, logout }) {
     { id: "subject-enrolled", label: "Subject Enrolled", icon: BookOpen },
     { id: "subject-schedule", label: "Subject Schedule", icon: Calendar },
     { id: "report-card", label: "Report Card", icon: FileText },
+    { id: "student-announcement", label: "Announcement", icon: FileText },
     { id: "settings", label: "Settings", icon: Settings },
   ];
 
